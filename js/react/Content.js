@@ -221,7 +221,7 @@ var Content = React.createClass({
             <div className="row" id="contact">
                 <div className="col-lg-12">
                     <p>版权 &copy; 中南屋</p>
-                    <p>Design and development by Hao Wan </p>
+                    <p>Design and development by <a href="mailto:wanhao.maple@gmail.com?subject=Hey Maple">Hao Wan</a> </p>
                 </div>
             </div>
         </footer>
