@@ -23,7 +23,8 @@ var ProjectInstance = React.createClass({
           <h3> {this.props.data.title} </h3>
         </div>
         <div>
-          <p> {this.props.data.text} </p>
+          <iframe className="iframePDF" src={this.props.data.url}
+                width='100%' height='1000px' frameborder='0'></iframe>
         </div>
       </div>
     );

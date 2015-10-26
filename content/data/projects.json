@@ -1,9 +1,12 @@
 [
-{"title": "创业板单日涨幅超过30%", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "创业板单日涨幅超过30%", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "创业板单日涨幅超过30%", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "创业板单日涨幅超过30%", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "<a src='www.google.com'>test</a>", "text":"<a href='html_images.asp'>HTML Images</a> <a href='www.google.com'>test</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "创业板单日涨幅超过30%", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?" },
-{"title": "希望号台风袭击东非海岸", "text":"希望号台风袭击东非海岸希望号台风袭击东非海岸希望号台风袭击东非海岸希望号台风袭击东非海岸希望号台风袭击东非海岸希望号台风袭击东非海岸" }
+  {
+    "title": "中资企业在肯如何本地化（一）", 
+    "abstract":"对于刚进入海外市场的公司，面临着充满着不确定性的市场和制度环境，公司形象关系着一个企业能否在当地立足和发展。Maggie通过生动的实例讲述了公司形象对于一个公司进入市场的重要性以及如何去建立一个良好的企业形象。", 
+    "url":"content/projectsDoc/chinahouselocalization1.pdf"
+  },
+  {
+    "title": "中资企业在肯如何本地化（二）", 
+    "abstract":"当我们到一个全新的国度，能够深刻感受到文化上的不适应，公司也是如此。如何让高大上的跨国公司变得接地气，如何去塑造既适合自己又适应当地的企业文化，来自于南非标准银行的曹总结合自己的经历分享了自己的看法与思路。",
+    "url":"content/projectsDoc/chinahouselocalization2.pdf"
+  }
 ]

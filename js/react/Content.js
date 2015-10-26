@@ -157,7 +157,7 @@ var Projects = React.createClass({
                     <h4><i className="fa fa-fw fa-check"></i> {projects.title}</h4>
                 </div>
                 <div className="panel-body">
-                    <p>{projects.text}</p>
+                    <p>{projects.abstract}</p>
                 </div>
                 <div className="">
                   <a onClick={self.handleClick.bind(this, projects)} href="#" className="btn btn-default detail-button">详细</a>
@@ -179,6 +179,13 @@ var Projects = React.createClass({
 
 
 // Content includes all three sections mentioned above, rendered into the content page
+/*
+  Columnists page temporarily hidden; used to be placed after projects sections
+            <div id="columnists">
+              <Columnists url={"content/data/columnists.json"} pollInterval={2000} />
+            </div>
+*/
+
 var Content = React.createClass({
   render: function() {
     return (
@@ -191,40 +198,8 @@ var Content = React.createClass({
             <div id="projects">
               <Projects url={"content/data/projects.json"} pollInterval={2000}/>
             </div>
-            <div id="columnists">
-              <Columnists url={"content/data/columnists.json"} pollInterval={2000} />
-            </div>
           </div>
         </div>
-
-        <hr />
-        <div className="well">
-            <div className="row">
-                <div className="col-md-8">
-                    <p>联系方式：</p>
-                    <ul>Email: xxx@znw.com</ul>
-                    <ul>Call: 1728393912</ul>
-                    <ul>地址: asdfkjzk</ul>
-                </div>
-                <div className="col-md-4">
-                    <a className="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
-                </div>
-            </div>
-        </div>
-        
-        <hr />
-        <div id="about">
-          about
-        </div>
-
-        <footer>
-            <div className="row" id="contact">
-                <div className="col-lg-12">
-                    <p>版权 &copy; 中南屋</p>
-                    <p>Design and development by <a href="mailto:wanhao.maple@gmail.com?subject=Hey Maple">Hao Wan</a> </p>
-                </div>
-            </div>
-        </footer>
       </div>
     );
   }
