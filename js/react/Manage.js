@@ -270,16 +270,64 @@ var AdminNews = React.createClass({
 var Manage = React.createClass({
   mixins: [ReactFireMixin],
 
+  getInitialState(){
+    return { showModal: false };
+  },
+
+  close(){
+    this.setState({ showModal: false });
+  },
+
+  // Create Modal for login if not yet
   handleClickNews: function() {
-    React.render(
-      <AdminNews />,
-      document.getElementById('admin-content')
-    );
+    var ref = new Firebase("https://srichinakenya.firebaseio.com");
+    var authData = ref.getAuth();
+    if(authData) {
+      React.render(
+        <AdminNews />,
+        document.getElementById('admin-content')
+      );
+    }else{
+      this.handleLoginToggle();
+    }
+  },
+
+  // called when it is not logged in
+  handleClickLogin: function() {
+    var self = this;
+    var ref = new Firebase("https://srichinakenya.firebaseio.com");
+
+    $('#myModal').modal('show');
+    ref.authWithPassword({
+      email    : $('#InputEmail').val() ,
+      password : $('#InputPassword').val()
+    }, function(error, authData) {
+      if (error) {
+        alert("Login failed. Please check your email & password");
+        console.log("Login Failed!", error);
+      } else {
+        $('#myModal').modal('hide');
+        $('#login').text('Logout');
+        self.handleClickNews();
+      }
+    });
+  },
+
+  handleLoginToggle: function() {
+    var ref = new Firebase("https://srichinakenya.firebaseio.com");
+    var authData = ref.getAuth();
+    if(authData){
+      ref.unauth();
+      window.location.reload();
+      $('#login').text('Login');
+    }else{
+      $('#myModal').modal('show');
+    }
   },
 
   handleClickColumnist: function() {
     React.render(
-      <div> Test Columnist </div>,
+      <div> To be Implemented</div>,
       document.getElementById('admin-content')
     );
   },
@@ -288,13 +336,39 @@ var Manage = React.createClass({
     self = this;
     return (
           <div>
-            <ul className="nav nav-tabs nav-justified">
-              <li role="presentation"><a href="#" onClick={self.handleClickNews.bind(this)} data-toggle="tab">News</a></li>
-              <li role="presentation"><a href="#" onClick={self.handleClickColumnist.bind(this)} data-toggle="tab">Columnists</a></li>
-              <li role="presentation"><a href="#" data-toggle="tab">Projects</a></li>
-            </ul>
-
+            <div className="row">
+              <div className="col-md-11">
+                <ul className="nav nav-tabs nav-justified">
+                  <li role="presentation"><a href="#" onClick={self.handleClickNews.bind(this)} data-toggle="tab">News</a></li>
+                  <li role="presentation"><a href="#" onClick={self.handleClickColumnist.bind(this)} data-toggle="tab">Columnists</a></li>
+                  <li role="presentation"><a href="#" data-toggle="tab">Projects</a></li>
+                </ul>
+              </div>
+              <button className="glyphicon glyphicon-user col-md-1" id="login" onClick={self.handleLoginToggle.bind(this)}>Login</button>
+            </div>
             <div id="admin-content">
+            </div>
+            
+            <div className="modal fade" id="myModal" role="dialog">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <form>
+                      <button type="button" className="close glyphicon glyphicon-remove" data-dismiss="modal"></button>
+                      <br/>
+                      <div className="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="InputEmail" placeholder="Email" />
+                      </div>
+                      <div className="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" className="form-control" id="InputPassword" placeholder="Password" />
+                      </div>
+                      <div className="btn btn-success" onClick={self.handleClickLogin.bind(this)}>Submit</div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
            );
