@@ -168,7 +168,7 @@ var Projects = React.createClass({
     });
     return  <div className="row">
               <div className="col-lg-12">
-                <h2 className="page-header">项目</h2>
+                <h2 className="page-header">研究</h2>
               </div>
               {projectsNodes}
             </div>
