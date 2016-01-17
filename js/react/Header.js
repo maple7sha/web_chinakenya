@@ -15,12 +15,12 @@ var Header = React.createClass({
     );
   },
 
-  handleClickManage: function() {
-    React.render(
-      <Manage />,
-      document.getElementById('content')
-    );
-  },
+  // handleClickManage: function() {
+  //   React.render(
+  //     <Manage />,
+  //     document.getElementById('content')
+  //   );
+  // },
 
   render: function() {
     var self = this;
@@ -33,7 +33,7 @@ var Header = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>                        
             </button>
-            <a className="navbar-brand" href="index.html">中国在肯负责任投资</a>
+            <a className="navbar-brand" href="index.html">中国在肯投资可持续发展信息平台</a>
           </div>
 
           <div className="collapse navbar-collapse" id="navbar-collapse-1">
@@ -55,9 +55,6 @@ var Header = React.createClass({
                   </li>
                   <li>
                       <a className="navbar-menu" href="#" onClick={self.handleClickDownload}>下载</a>
-                  </li>
-                  <li>
-                      <a className="navbar-menu" href="admin.html" onClick={self.handleClickManage}>管理</a>
                   </li>
               </ul>
           </div>
