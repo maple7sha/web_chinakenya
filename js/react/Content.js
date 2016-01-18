@@ -21,19 +21,19 @@ var News = React.createClass({
     return {data: []};
   },
 
-  componentWillMount: function() {
-    var NewsRef = new Firebase("https://srichinakenya.firebaseio.com/News");
-    this.bindAsArray(NewsRef, "data");
-  },
-
-  // componentDidMount: function() {
-  //   this.loadFromServer();
-  //   setInterval(this.loadFromServer, this.props.pollInterval);
+  // componentWillMount: function() {
+  //   var NewsRef = new Firebase("https://srichinakenya.firebaseio.com/News");
+  //   this.bindAsArray(NewsRef, "data");
   // },
 
-  handleClick: function(i, data) {
+  componentDidMount: function() {
+    this.loadFromServer();
+    setInterval(this.loadFromServer, this.props.pollInterval);
+  },
+
+  handleClick: function(data) {
     React.render(
-      <NewsInstance data={data} />,
+      <ProjectInstance data={data} />,
       document.getElementById('content')
     );
   },
@@ -48,10 +48,10 @@ var News = React.createClass({
                       <h4> {news.title} </h4>
                   </div>
                   <div className="panel-body">
-                      <p>{news.brief} </p>
+                      <p>{news.abstract} </p>
                   </div>
                   <div className="">
-                    <a onClick={self.handleClick.bind(this, i, news)} href="#" className="btn btn-default detail-button">详细</a>
+                    <a onClick={self.handleClick.bind(this, news)} href="#" className="btn btn-default detail-button">详细</a>
                   </div>
               </div>
           </div>
