@@ -1,24 +1,24 @@
 var Download = React.createClass({
 
-  loadFromServer: function() {
-    var self = this;
-    $.ajax({
-      url: this.props.url,
-      success: function(files) {
-        var fileList = [];
-        $(files).find("a:contains(.)").each(function () {
-          var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-          if(filename!=""){
-            fileList.push(filename);
-          }
-        });
-        self.setState({data: fileList});
-      },
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
+  // loadFromServer: function() {
+  //   var self = this;
+  //   $.ajax({
+  //     url: this.props.url,
+  //     success: function(files) {
+  //       var fileList = [];
+  //       $(files).find("a:contains(.)").each(function () {
+  //         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+  //         if(filename!=""){
+  //           fileList.push(filename);
+  //         }
+  //       });
+  //       self.setState({data: fileList});
+  //     },
+  //     error: function(xhr, status, err) {
+  //       console.error(this.props.url, status, err.toString());
+  //     }.bind(this)
+  //   });
+  // },
 
   getInitialState: function() {
     return {data: []};
@@ -26,20 +26,20 @@ var Download = React.createClass({
 
   componentDidMount: function() {
     this.loadFromServer();
-    setInterval(this.loadFromServer, this.props.pollInterval);
+    // setInterval(this.loadFromServer, this.props.pollInterval);
   },
 
   render: function() {
     var self = this;
-
-    var downloadNodes = this.state.data.map(function(download) {
-
+    var download = ["download/Mapping.pdf"];
+    var downloadNodes = download.map(function(download) {
+      
       return (
         <div>
           <a href={download} download>
             <br />
             <span className="glyphicon glyphicon-download-alt"> </span>
-              &nbsp; {download.split("/")[1]}         
+            &nbsp; {download.split("/")[1]}         
           </a>
           <br/>
         </div>
@@ -57,6 +57,7 @@ var Download = React.createClass({
         <div className="col-md-4">{downloadNodes}</div>
         <div className="col-md-4"></div>  
       </div>
+      <br />
       </div>
     );
   }

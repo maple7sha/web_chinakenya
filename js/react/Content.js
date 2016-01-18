@@ -93,13 +93,30 @@ var Columnists = React.createClass({
     setInterval(this.loadFromServer, this.props.pollInterval);
   },
 
+  handleClick: function(project) {
+    React.render(
+      <ProjectInstance data={project} />,
+      document.getElementById('content')
+    );
+  },
+
   render: function() {
+    var self=this;
     var columnistsNodes = this.state.data.map(function(columnists) {
       return (
-        <div className="col-md-6 col-sm-6">
-            <a href="#">
-                <img className="img-responsive img-portfolio img-hover" src="content/img/750x450.htm" alt="" />
-            </a>
+        <div className="col-md-6">
+            <div className="panel panel-default">
+
+                <div className="panel-heading">
+                    <h4><i className="fa fa-fw fa-check"></i> {columnists.title}</h4>
+                </div>
+                <div className="panel-body">
+                    <p>{columnists.abstract}</p>
+                </div>
+                <div className="">
+                  <a onClick={self.handleClick.bind(this, columnists)} href="#" className="btn btn-default detail-button">详细</a>
+                </div>
+            </div>
         </div>
       );
     });
@@ -113,7 +130,7 @@ var Columnists = React.createClass({
 });
 
 
-// React Class for projects
+/* React Class for projects */
 var Projects = React.createClass({
   loadFromServer: function() {
     $.ajax({
@@ -197,6 +214,9 @@ var Content = React.createClass({
           <div className="col-md-8">  
             <div id="projects">
               <Projects url={"content/data/projects.json"} pollInterval={2000}/>
+            </div>
+            <div id="columnists">
+              <Columnists url={"content/data/columnists.json"} pollInterval={2000} />
             </div>
           </div>
         </div>
